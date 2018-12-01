@@ -1,0 +1,83 @@
+body {
+  margin: unset;
+  font-family: "Rubik", sans-serif;
+}
+
+.splash-container {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  color: #ffffff;
+}
+
+.splash-background {
+  position: absolute;
+  z-index: -1;
+  top: -50vh;
+  left: -50vw;
+  height: 200vh;
+  width: 200vw;
+  background-color: #110c0f;
+}
+
+.splash-name {
+  text-align: center;
+  font-family: "Crimson Text", serif;
+  font-size: 24pt;
+}
+
+@media (min-width: 375px) {
+  .splash-name {
+    font-size: 36pt;
+  }
+}
+
+.splash-title {
+  text-align: center;
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 12pt;
+}
+
+@media (min-width: 375px) {
+  .splash-title {
+    font-size: 18pt;
+  }
+}
+
+.splash-bio {
+  max-width: 240px;
+  margin-top: 20px;
+  margin-left: env(safe-area-inset-left);
+  margin-right: env(safe-area-inset-right);
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 8pt;
+}
+
+@media (min-width: 375px) {
+  .splash-bio {
+    max-width: 360px;
+    font-size: 12pt;
+  }
+}
+
+.viewport-fit-container {
+  border-left: env(safe-area-inset-left) solid #00000010;
+  border-right: env(safe-area-inset-right) solid #00000010;
+  border-bottom: env(safe-area-inset-bottom) solid #00000010;
+}
+
+.main-container {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+}
