@@ -4,9 +4,10 @@ body {
 }
 
 .card-container {
+  min-height: 80vh;
   display: flex;
-  margin-top: 180px;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   color: #ffffff;
   font-size: 8pt;
@@ -15,54 +16,6 @@ body {
 @media (min-width: 360px) {
   .card-container {
     font-size: 12pt;
-  }
-}
-
-@media (orientation: landscape) {
-  .card-container {
-    margin-top: 40px;
-  }
-}
-
-@media (min-height: 640px) {
-  .card-container {
-    margin-top: 200px;
-  }
-}
-
-@media (orientation: landscape) and (min-height: 360px) {
-  .card-container {
-    margin-top: 60px;
-  }
-}
-
-@media (min-height: 700px) {
-  .card-container {
-    margin-top: 240px;
-  }
-}
-
-@media (orientation: landscape) and (min-height: 360px) {
-  .card-container {
-    margin-top: 80px;
-  }
-}
-
-@media (min-width: 600px) and (min-height: 560px) {
-  .card-container {
-    margin-top: 160px;
-  }
-}
-
-@media (min-width: 600px) and (min-height: 720px) {
-  .card-container {
-    margin-top: 240px;
-  }
-}
-
-@media (min-width: 600px) and (min-height: 960px) {
-  .card-container {
-    margin-top: 360px;
   }
 }
 
