@@ -9,6 +9,13 @@ body {
   flex-direction: column;
   align-items: center;
   color: #ffffff;
+  font-size: 8pt;
+}
+
+@media (min-width: 360px) {
+  .card-container {
+    font-size: 12pt;
+  }
 }
 
 @media (orientation: landscape) {
@@ -41,6 +48,24 @@ body {
   }
 }
 
+@media (min-width: 600px) and (min-height: 560px) {
+  .card-container {
+    margin-top: 160px;
+  }
+}
+
+@media (min-width: 600px) and (min-height: 720px) {
+  .card-container {
+    margin-top: 240px;
+  }
+}
+
+@media (min-width: 600px) and (min-height: 960px) {
+  .card-container {
+    margin-top: 360px;
+  }
+}
+
 .card-background {
   position: fixed;
   z-index: -1;
@@ -57,7 +82,7 @@ body {
   font-size: 24pt;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 360px) {
   .card-name {
     font-size: 36pt;
   }
@@ -69,21 +94,65 @@ body {
   font-size: 12pt;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 360px) {
   .card-title {
     font-size: 18pt;
   }
 }
 
 .card-bio {
-  max-width: 240px;
+  width: 240px;
   margin-top: 20px;
-  font-size: 8pt;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 360px) {
   .card-bio {
-    max-width: 360px;
-    font-size: 12pt;
+    width: 360px;
+  }
+}
+
+.card-links {
+  width: 240px;
+  display: flex;
+  margin-top: 10px;
+}
+
+@media (min-width: 360px) {
+  .card-links {
+    width: 360px;
+  }
+}
+
+.card-link {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding-left: 6px;
+  color: #d6d3d6;
+  text-transform: lowercase;
+  text-decoration: unset;
+  font-weight: 300;
+  font-style: italic;
+}
+
+@media (min-width: 360px) {
+  .card-link {
+    height: 40px;
+    padding-left: 8px;
+  }
+}
+
+.card-link::before {
+  content: "\203A";
+  margin-right: 6px;
+  font-size: 12pt;
+}
+
+@media (min-width: 360px) {
+  .card-link::before {
+    content: "\203A";
+    margin-right: 8px;
+    font-size: 18pt;
   }
 }
