@@ -10,12 +10,13 @@ body {
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  font-size: 8pt;
+  font-size: 4vmin;
 }
 
-@media (min-width: 360px) {
+@media (min-width: 440px) and (min-height: 440px) {
   .card-container {
-    font-size: 12pt;
+    min-height: 90vh;
+    font-size: 2.5vmin;
   }
 }
 
