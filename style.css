@@ -32,56 +32,32 @@ body {
 .card-name {
   text-align: center;
   font-family: "Crimson Text", serif;
-  font-size: 24pt;
-}
-
-@media (min-width: 360px) {
-  .card-name {
-    font-size: 36pt;
-  }
+  font-size: 3em;
 }
 
 .card-title {
   text-align: center;
   font-family: "Rubik Mono One", sans-serif;
-  font-size: 12pt;
-}
-
-@media (min-width: 360px) {
-  .card-title {
-    font-size: 18pt;
-  }
+  font-size: 1.5em;
 }
 
 .card-bio {
-  width: 240px;
-  margin-top: 20px;
-}
-
-@media (min-width: 360px) {
-  .card-bio {
-    width: 360px;
-  }
+  width: 22.5em;
+  margin-top: 1.25em;
 }
 
 .card-links {
-  width: 240px;
+  width: 22.5em;
   display: flex;
-  margin-top: 10px;
-}
-
-@media (min-width: 360px) {
-  .card-links {
-    width: 360px;
-  }
+  margin-top: 0.5em;
 }
 
 .card-link {
-  height: 20px;
+  height: 2.5em;
   display: flex;
   align-items: center;
   flex: 1;
-  padding-left: 6px;
+  padding-left: 0.5em;
   color: #d6d3d6;
   text-transform: lowercase;
   text-decoration: unset;
@@ -89,23 +65,8 @@ body {
   font-style: italic;
 }
 
-@media (min-width: 360px) {
-  .card-link {
-    height: 40px;
-    padding-left: 8px;
-  }
-}
-
 .card-link::before {
   content: "\203A";
-  margin-right: 6px;
-  font-size: 12pt;
-}
-
-@media (min-width: 360px) {
-  .card-link::before {
-    content: "\203A";
-    margin-right: 8px;
-    font-size: 18pt;
-  }
+  margin-right: 0.33em;
+  font-size: 1.5em;
 }
