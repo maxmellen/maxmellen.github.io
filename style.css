@@ -4,20 +4,17 @@ body {
 }
 
 .card-container {
-  min-height: 80vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  font-size: 4vmin;
-}
-
-@media (min-width: 440px) and (min-height: 440px) {
-  .card-container {
-    min-height: 90vh;
-    font-size: 2.5vmin;
-  }
+  font-size: 12pt;
 }
 
 .card-background {
@@ -37,37 +34,38 @@ body {
 }
 
 .card-title {
+  margin-top: -0.33em;
   text-align: center;
-  font-family: "Rubik Mono One", sans-serif;
   font-size: 1.5em;
+  font-weight: 300;
+  letter-spacing: 0.25em;
 }
 
 .card-bio {
-  width: 22.5em;
-  margin-top: 1.25em;
+  width: 24em;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  line-height: 1.33;
 }
 
 .card-links {
-  width: 22.5em;
+  width: 24em;
   display: flex;
-  margin-top: 0.5em;
 }
 
 .card-link {
   height: 2.5em;
+  flex: auto;
   display: flex;
   align-items: center;
-  flex: 1;
   padding-left: 0.5em;
   color: #d6d3d6;
+  font-weight: 300;
   text-transform: lowercase;
   text-decoration: unset;
-  font-weight: 300;
-  font-style: italic;
 }
 
 .card-link::before {
   content: "\203A";
-  margin-right: 0.33em;
-  font-size: 1.5em;
+  margin-right: 0.5em;
 }
