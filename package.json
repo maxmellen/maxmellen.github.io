@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "parcel --out-dir docs index.html",
+    "build": "parcel build --out-dir docs index.html",
+    "prettier:check": "prettier --check '**/*.{html,ts,scss}'",
+    "prettier:write": "prettier --write '**/*.{html,ts,scss}'"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "parcel-bundler": "^1.12.4",
+    "postcss-modules": "^1.5.0",
+    "prettier": "^1.19.1",
+    "sass": "^1.26.2",
+    "typescript": "^3.8.3"
+  }
+}

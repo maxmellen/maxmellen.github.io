@@ -1,0 +1,36 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #0b0016;
+  font-family: "Rubik", sans-serif;
+}
+
+.big {
+  font-size: 36pt;
+  text-align: center;
+  text-shadow: 0 3px 6px #00000022;
+}
+
+@mixin tech {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.parcel {
+  @include tech;
+  color: #ffc042;
+}
+
+.typescript {
+  @include tech;
+  color: #70d6eb;
+}
+
+.cssModules {
+  @include tech;
+  color: #ff6580;
+}

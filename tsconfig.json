@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "target": "ESNext",
+    "esModuleInterop": true
+  },
+  "include": ["main.ts", "styles.d.ts"]
+}
