@@ -7,12 +7,21 @@ body {
 body {
   color: #0b0016;
   font-family: "Rubik", sans-serif;
+
+  @media (prefers-color-scheme: dark) {
+    color: #ffffff;
+    background-color: #1c1a1f;
+  }
 }
 
 .big {
   font-size: 36pt;
   text-align: center;
   text-shadow: 0 3px 6px #00000022;
+
+  @media (prefers-color-scheme: dark) {
+    text-shadow: 0 3px 6px #00000066;
+  }
 }
 
 @mixin tech {
