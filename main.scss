@@ -15,12 +15,20 @@ body {
 }
 
 .big {
-  font-size: 36pt;
+  font-size: 18pt;
   text-align: center;
   text-shadow: 0 3px 6px #00000022;
 
   @media (prefers-color-scheme: dark) {
     text-shadow: 0 3px 6px #00000066;
+  }
+
+  @media (min-width: 400px) {
+    font-size: 24pt;
+  }
+
+  @media (min-width: 600px) {
+    font-size: 36pt;
   }
 }
 
