@@ -1,0 +1,79 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0 1em;
+  padding: 0;
+
+  color: #0b0016;
+  font-family: "Rubik", sans-serif;
+
+  @media (prefers-color-scheme: dark) {
+    color: #ffffff;
+    background-color: #1c1a1f;
+  }
+}
+
+@mixin tagline {
+  text-align: center;
+  text-shadow: 0 3px 6px #00000022;
+
+  @media (prefers-color-scheme: dark) {
+    text-shadow: 0 3px 6px #00000066;
+  }
+}
+
+.medium {
+  @include tagline;
+
+  font-size: 12pt;
+
+  @media (min-width: 400px) {
+    font-size: 16pt;
+  }
+
+  @media (min-width: 600px) {
+    font-size: 24pt;
+  }
+}
+
+.big {
+  @include tagline;
+
+  font-size: 18pt;
+
+  @media (min-width: 400px) {
+    font-size: 24pt;
+  }
+
+  @media (min-width: 600px) {
+    font-size: 36pt;
+  }
+}
+
+@mixin tech {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.parcel {
+  @include tech;
+  color: #ffc042;
+}
+
+.typescript {
+  @include tech;
+  color: #70d6eb;
+}
+
+.cssModules {
+  @include tech;
+  color: #ff6580;
+}
+
+.elm {
+  @include tech;
+  color: #6ae7b5;
+}

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "strict": true,
     "target": "ESNext",
     "esModuleInterop": true
