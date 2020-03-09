@@ -31,28 +31,3 @@ body {
     font-size: 36pt;
   }
 }
-
-@mixin tech {
-  font-weight: 500;
-  text-decoration: underline;
-}
-
-.parcel {
-  @include tech;
-  color: #ffc042;
-}
-
-.typescript {
-  @include tech;
-  color: #70d6eb;
-}
-
-.cssModules {
-  @include tech;
-  color: #ff6580;
-}
-
-.elm {
-  @include tech;
-  color: #a6fcda;
-}

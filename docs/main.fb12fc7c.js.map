@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.ts"],"names":[],"mappings":";;;;;AAGA,aAAA,OAAA,eAAA,QAAA,aAAA,CAAA,OAAA,IAHA,QAAA,iBACA,IAAA,EAAA,QAAA,cAEA,EAAA,IAAI,KAAM,KAAK,CACb,KAAM,SAAS,eAAe","file":"main.fb12fc7c.js","sourceRoot":"../src","sourcesContent":["import \"./styles.scss\";\nimport { Elm } from \"./Main.elm\";\n\nElm.Main!.init({\n  node: document.getElementById(\"elm\")!\n});\n"]}
