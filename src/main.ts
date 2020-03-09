@@ -47,11 +47,9 @@ window.addEventListener("load", () => {
   const elmDiv = document.createElement("div");
   document.body.append(elmDiv);
 
-  let app = Elm.Main!.init<{
-    ports: { outgoing: "alert" };
-  }>({ node: elmDiv });
+  let app = Elm.Main!.init({ node: elmDiv });
 
-  app.ports.alert.subscribe((message: string) => {
+  app.ports!.alert!.subscribe!((message: string) => {
     window.alert(message);
   });
 });
