@@ -5,5 +5,5 @@
     "target": "ESNext",
     "esModuleInterop": true
   },
-  "include": ["main.ts", "styles.d.ts"]
+  "include": ["main.ts", "styles.d.ts", "elm.d.ts"]
 }
