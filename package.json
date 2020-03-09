@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "start": "parcel --out-dir docs index.html",
-    "build": "parcel build --out-dir docs index.html",
-    "prettier:check": "prettier --check '**/*.{html,ts,scss}'",
-    "prettier:write": "prettier --write '**/*.{html,ts,scss}'"
+    "start": "parcel --out-dir docs src/index.html",
+    "build": "parcel build --out-dir docs src/index.html",
+    "prettier:check": "prettier --check 'src/**/*.{html,ts,scss}'",
+    "prettier:write": "prettier --write 'src/**/*.{html,ts,scss}'"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.4",
