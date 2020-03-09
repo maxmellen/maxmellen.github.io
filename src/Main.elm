@@ -4,28 +4,20 @@ import Browser
 import Html as H exposing (Html)
 import Html.Attributes as A
 import Html.Events as E
-import Json.Decode as J
+import Styles
 
 
 type alias Flags =
-    { deviceWidth : Int }
+    ()
 
 
 type alias Model =
-    { deviceCategory : DeviceCategory }
+    ()
 
 
 type Msg
     = NoOp
     | Alert String
-    | GetWindowSize
-    | Resize Int
-
-
-type DeviceCategory
-    = Phone
-    | Tablet
-    | Desktop
 
 
 main : Program Flags Model Msg
@@ -34,46 +26,20 @@ main =
         { init = init
         , view = view
         , update = update
-        , subscriptions = subscriptions
+        , subscriptions = \_ -> Sub.none
         }
 
 
 init : Flags -> ( Model, Cmd Msg )
-init flags =
-    ( { deviceCategory = computeDeviceCategory flags.deviceWidth }, Cmd.none )
+init _ =
+    ( (), Cmd.none )
 
 
 view : Model -> Html Msg
-view model =
-    let
-        fontSize =
-            case model.deviceCategory of
-                Phone ->
-                    "18pt"
-
-                Tablet ->
-                    "24pt"
-
-                Desktop ->
-                    "36pt"
-
-        bigParagraph =
-            styled H.p
-                [ ( "font-size", fontSize )
-                , ( "text-align", "center" )
-                , ( "text-shadow", "0 3px 6px #00000022" )
-                ]
-
-        elmSpan =
-            styled H.span
-                [ ( "font-weight", "500" )
-                , ( "text-decoration", "underline" )
-                , ( "color", "#a6fcda" )
-                ]
-    in
-    bigParagraph [ E.onClick <| Alert "I said hey!" ]
+view _ =
+    H.p [ A.class Styles.big, E.onClick <| Alert "I said hey!" ]
         [ H.text "And welcome to "
-        , elmSpan [] [ H.text "Elm" ]
+        , H.span [ A.class Styles.elm ] [ H.text "Elm" ]
         , H.text "!"
         ]
 
@@ -87,46 +53,5 @@ update msg model =
         Alert message ->
             ( model, alert message )
 
-        GetWindowSize ->
-            ( model, Cmd.none )
-
-        Resize width ->
-            ( { model | deviceCategory = computeDeviceCategory width }, Cmd.none )
-
-
-subscriptions : Model -> Sub Msg
-subscriptions _ =
-    windowResize <|
-        J.decodeValue (J.field "width" J.int)
-            >> Result.map Resize
-            >> Result.withDefault NoOp
-
-
-styled : (List (H.Attribute msg) -> List (Html msg) -> Html msg) -> List ( String, String ) -> List (H.Attribute msg) -> List (Html msg) -> Html msg
-styled element stylePairs otherAttrs =
-    let
-        styleAttrs =
-            List.map (\( name, value ) -> A.style name value) stylePairs
-    in
-    element <| styleAttrs ++ otherAttrs
-
-
-computeDeviceCategory : Int -> DeviceCategory
-computeDeviceCategory deviceWidth =
-    case compare deviceWidth 400 of
-        LT ->
-            Phone
-
-        _ ->
-            case compare deviceWidth 600 of
-                LT ->
-                    Tablet
-
-                _ ->
-                    Desktop
-
 
 port alert : String -> Cmd msg
-
-
-port windowResize : (J.Value -> msg) -> Sub msg

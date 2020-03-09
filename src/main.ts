@@ -1,4 +1,4 @@
-import styles from "./main.scss";
+import styles from "./styles.scss";
 import { Elm } from "./Main.elm";
 
 interface Greetings {
@@ -25,14 +25,6 @@ let greetings: Greetings[] = [
   }
 ];
 
-interface ElmInit {
-  flags: { deviceWidth: number };
-  ports: {
-    outgoing: "alert" | "getWindowSize";
-    incoming: "windowResize";
-  };
-}
-
 let punctuation: string[] = [",", "...", "!"];
 
 let paragraphs: HTMLParagraphElement[] = greetings.map((g, i) => {
@@ -55,16 +47,11 @@ window.addEventListener("load", () => {
   const elmDiv = document.createElement("div");
   document.body.append(elmDiv);
 
-  let app = Elm.Main!.init<ElmInit>({
-    node: elmDiv,
-    flags: { deviceWidth: window.innerWidth }
-  });
+  let app = Elm.Main!.init<{
+    ports: { outgoing: "alert" };
+  }>({ node: elmDiv });
 
   app.ports.alert.subscribe((message: string) => {
     window.alert(message);
-  });
-
-  window.addEventListener("resize", () => {
-    app.ports.windowResize.send({ width: window.innerWidth });
   });
 });
