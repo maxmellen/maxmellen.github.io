@@ -1,4 +1,4 @@
 declare module "*.scss" {
-  let styles: { [className: string]: string; };
+  let styles: { [className: string]: string };
   export = styles;
 }

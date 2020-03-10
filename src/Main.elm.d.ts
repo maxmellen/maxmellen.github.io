@@ -1,4 +1,3 @@
-import styles from "*.scss";
 export let Elm: { Main: Main };
 
 export interface Main {
@@ -6,7 +5,7 @@ export interface Main {
 }
 
 export interface Flags {
-  styles: typeof styles;
+  styles: { [className: string]: string };
 }
 
 export interface App {}

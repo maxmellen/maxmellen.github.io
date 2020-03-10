@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import Browser
 import Html as H exposing (Html)
-import Html.Attributes as A
+import Styles exposing (Helper)
 
 
 type alias Styles =
@@ -20,10 +20,14 @@ type alias Flags =
 
 
 type alias Model =
-    { styles : Styles }
+    { css : Helper Styles Msg }
 
 
-main : Program Flags Model msg
+type alias Msg =
+    ()
+
+
+main : Program Flags Model Msg
 main =
     Browser.element
         { init = init
@@ -35,30 +39,30 @@ main =
 
 init : Flags -> ( Model, Cmd msg )
 init flags =
-    ( Model flags.styles, Cmd.none )
-
-
-view : Model -> Html msg
-view model =
     let
-        style prop =
-            A.class <| prop model.styles
+        styles =
+            Styles.helper flags.styles
     in
+    ( Model styles, Cmd.none )
+
+
+view : Model -> Html Msg
+view { css } =
     H.div []
-        [ H.p [ style .big ]
-            [ H.span [ style .cssModules ]
+        [ H.p [ css.class .big ]
+            [ H.span [ css.class .cssModules ]
                 [ H.text "CSS modules" ]
             , H.text " in "
-            , H.span [ style .elm ]
+            , H.span [ css.class .elm ]
                 [ H.text "Elm" ]
             , H.text "!"
             ]
-        , H.p [ style .medium ]
+        , H.p [ css.class .medium ]
             [ H.text "Glued with "
-            , H.span [ style .typescript ]
+            , H.span [ css.class .typescript ]
                 [ H.text "TypeScript" ]
             , H.text " & "
-            , H.span [ style .parcel ]
+            , H.span [ css.class .parcel ]
                 [ H.text "Parcel" ]
             , H.text "."
             ]
