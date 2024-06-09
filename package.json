@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start": "serve",
-    "tailwind": "tailwindcss -i main.css -o dist.css",
+    "tailwind:build": "tailwindcss -i main.css -o dist.css --minify",
     "tailwind:watch": "tailwindcss -i main.css -o dist.css --watch"
   },
   "devDependencies": {
