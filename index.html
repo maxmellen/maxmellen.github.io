@@ -4,57 +4,28 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>maxmellen.io</title>
-    <link rel="stylesheet" href="fonts/IBMPlexSansJP-Bold.css" />
+    <link rel="stylesheet" href="dist.css" />
   </head>
   <body
-    style="
-      position: absolute;
-      inset: 0;
-      color: white;
-      background: black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'IBM Plex Sans JP', system-ui;
-      font-weight: 700;
-      line-height: 1.2;
-    "
+    class="absolute inset-0 flex flex-col items-center justify-center bg-black font-bold leading-[1.2] text-white"
   >
-    <div
-      style="
-        display: inherit;
-        flex-direction: inherit;
-        text-align-last: justify;
-      "
-    >
-      <div style="font-size: 15vmin">ﾏｸｼﾐﾘｱﾝ･ﾒﾚﾝ</div>
-      <div style="font-size: 30vmin">關奕鳴</div>
-      <div style="font-size: 10vmin">Maximilien Mellen</div>
-      <div
-        style="
-          display: inherit;
-          justify-content: space-evenly;
-          align-items: center;
-          height: 20vmin;
-        "
-      >
-        <a style="display: contents" href="https://github.com/maxmellen">
+    <div class="flex flex-col [text-align-last:justify]">
+      <div class="mx-[1vmin] text-[15vmin]">ﾏｸｼﾐﾘｱﾝ･ﾒﾚﾝ</div>
+      <div class="text-[30vmin]">關奕鳴</div>
+      <div class="mx-[1vmin] text-[10vmin]">Maximilien Mellen</div>
+      <div class="flex h-[20vmin] items-center justify-evenly">
+        <a class="contents" href="https://github.com/maxmellen">
           <img
+            class="max-h-[10vmin]"
             src="img/github-mark-white.svg"
             alt="GitHub Logo"
-            style="max-height: 10vmin"
           />
         </a>
         <a style="display: contents" href="https://linkedin.com/in/maxmellen/">
           <img
+            class="max-h-[10vmin] [clip-path:inset(0_15%_0_0)] [filter:brightness(500%)_grayscale(100%)]"
             src="img/LI-In-Bug.png"
             alt="LinkedIn Logo"
-            style="
-              max-height: 10vmin;
-              filter: brightness(500%) grayscale(100%);
-              clip-path: inset(0 15% 0 0);
-            "
           />
         </a>
       </div>
