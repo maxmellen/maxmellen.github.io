@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "serve"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.1",
+    "serve": "^14.2.3"
+  }
+}
