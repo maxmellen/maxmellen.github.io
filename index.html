@@ -12,16 +12,24 @@
     <link rel="stylesheet" href="dist.css" />
   </head>
   <body
-    class="absolute inset-0 flex flex-col items-center justify-center bg-black font-bold leading-[1.2] text-white"
+    class="absolute inset-0 flex flex-col items-center justify-center bg-black font-bold leading-[1] text-white [text-align-last:justify]"
   >
-    <div class="flex flex-col [text-align-last:justify]">
-      <div class="mx-[1vmin] text-[15vmin]">ﾏｸｼﾐﾘｱﾝ･ﾒﾚﾝ</div>
-      <div class="text-[30vmin]">關奕鳴</div>
-      <div class="mx-[1vmin] text-[10vmin]">Maximilien Mellen</div>
-      <div class="flex h-[20vmin] items-center justify-evenly">
-        <a class="contents" href="https://github.com/maxmellen">
+    <div class="flex flex-col gap-[2vh] text-[20vh]">
+      <div
+        class="flex flex-col justify-between gap-[1vh] whitespace-nowrap [writing-mode:vertical-rl]"
+      >
+        <div class="my-[1%] text-[25%]">マクシミリアン・メレン</div>
+        <div>關奕鳴</div>
+      </div>
+      <div class="ml-[4%] mr-[2%] text-[13.5%]">Maximilien Mellen</div>
+      <div class="mt-[1vh] flex h-[5vh] items-center justify-evenly">
+        <a
+          class="contents"
+          href="https://github.com/maxmellen"
+          aria-label="GitHub Profile"
+        >
           <svg
-            class="h-[10vmin] fill-current"
+            class="h-full fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
           >
@@ -30,9 +38,13 @@
             />
           </svg>
         </a>
-        <a style="display: contents" href="https://linkedin.com/in/maxmellen/">
+        <a
+          style="display: contents"
+          href="https://linkedin.com/in/maxmellen/"
+          aria-label="LinkedIn Profile"
+        >
           <svg
-            class="h-[10vmin] fill-current"
+            class="h-full fill-current"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
           >
