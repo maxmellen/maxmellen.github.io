@@ -3,7 +3,8 @@
   "scripts": {
     "start": "serve",
     "tailwind:build": "tailwindcss -i main.css -o dist.css --minify",
-    "tailwind:watch": "tailwindcss -i main.css -o dist.css --minify --watch"
+    "tailwind:watch": "tailwindcss -i main.css -o dist.css --minify --watch",
+    "ripfonts": "go run ripfonts/main.go"
   },
   "devDependencies": {
     "prettier": "^3.3.1",
