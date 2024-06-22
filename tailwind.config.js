@@ -2,12 +2,9 @@
 module.exports = {
   content: ['./index.html'],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['"IBM Plex Sans JP"', 'system-ui', 'sans-serif'],
-        mono: ['"IBM Plex Mono"', 'monospace'],
-      },
+    fontFamily: {
+      sans: ['"M PLUS 1"', 'system-ui', 'sans-serif'],
+      mono: ['"IBM Plex Mono"', 'monospace'],
     },
   },
-  plugins: [],
 }
