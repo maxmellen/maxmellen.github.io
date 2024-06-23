@@ -1,15 +1,18 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "serve",
     "tailwind:build": "tailwindcss -i main.css -o dist.css --minify",
     "tailwind:watch": "tailwindcss -i main.css -o dist.css --minify --watch",
-    "ripfonts": "go run ripfonts/main.go"
+    "ripfonts": "node scripts/ripfonts"
   },
   "devDependencies": {
+    "@types/node": "^20.14.8",
     "prettier": "^3.3.1",
     "prettier-plugin-tailwindcss": "^0.6.2",
     "serve": "^14.2.3",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.2"
   }
 }
