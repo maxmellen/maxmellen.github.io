@@ -3,9 +3,13 @@
   "type": "module",
   "scripts": {
     "start": "serve",
+    "postinstall": "cp node_modules/alpinejs/dist/cdn.min.js alpine.min.js",
     "tailwind:build": "tailwindcss -i main.css -o dist.css --minify",
     "tailwind:watch": "tailwindcss -i main.css -o dist.css --minify --watch",
     "ripfonts": "node scripts/ripfonts"
+  },
+  "dependencies": {
+    "alpinejs": "^3.14.1"
   },
   "devDependencies": {
     "@types/node": "^20.14.8",
