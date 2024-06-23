@@ -39,6 +39,7 @@ func main() {
 	}
 
 	var wg sync.WaitGroup
+	var mu sync.Mutex
 	for _, match := range matches {
 		url := match[1]
 		fileName := filepath.Base(string(url))
@@ -68,10 +69,12 @@ func main() {
 			}
 
 			log.Print("ダウンロード完了: ", fileName)
-		}(url, fileName)
 
-		// CSSのURLをローカルファイルパスに置き換える
-		styleSheet = bytes.Replace(styleSheet, url, []byte(filepath.Join(filepath.Base(destDir), fileName)), 1)
+			// CSSのURLをローカルファイルパスに置き換える
+			mu.Lock()
+			styleSheet = bytes.Replace(styleSheet, url, []byte(filepath.Join(filepath.Base(destDir), fileName)), 1)
+			mu.Unlock()
+		}(url, fileName)
 	}
 
 	wg.Wait()
