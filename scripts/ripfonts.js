@@ -12,7 +12,8 @@ let [destDir] = args
 let cssFileName = destDir + '.css'
 
 let styleSheet = await readAll(process.stdin)
-let fontFaceRegex = /@font-face\s*{[^}]*url\(([^)]*\.woff2)\)[^}]*}/gm
+let fontFaceRegex =
+  /@font-face\s*{[^}]*font-family:\s*["']([^"']+)["'][^}]*src:\s*url\(["']?([^)]+?)["']?\)/gm
 let matches = styleSheet.matchAll(fontFaceRegex)
 
 fs.mkdirSync(destDir, { recursive: true })
@@ -20,14 +21,14 @@ fs.mkdirSync(destDir, { recursive: true })
 /** @type {Promise<void>[]} */
 let downloadPromises = []
 
-for (let [, fontUrl] of matches) {
+for (let [, fontFamily, fontUrl] of matches) {
   let fileName = path.basename(fontUrl)
   let destPath = path.join(destDir, fileName)
   downloadPromises.push(
     downloadToFile(fontUrl, destPath).then(() => {
       styleSheet = styleSheet.replace(
-        fontUrl,
-        path.join(path.basename(destDir), fileName),
+        `url(${fontUrl})`,
+        `local('${fontFamily}'), url('${path.join(path.basename(destDir), fileName)}')`,
       )
     }),
   )
