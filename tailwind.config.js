@@ -4,7 +4,7 @@ export default {
   theme: {
     fontFamily: {
       sans: ['"M PLUS 1"', 'system-ui', 'sans-serif'],
-      mono: ['"IBM Plex Mono"', 'monospace'],
+      mono: ['"IBM Plex Mono"', '"M PLUS 1"', 'monospace'],
     },
   },
 }

@@ -8,64 +8,81 @@
       content="Maximilien Mellen | マクシミリアン・メレン | 關奕鳴"
     />
     <title>maxmellen.io</title>
-    <link rel="stylesheet" href="fonts/mplus1.css" />
     <link rel="stylesheet" href="fonts/IBMPlexMono-Regular.css" />
+    <link rel="stylesheet" href="fonts/mplus1_400.css" />
+    <link rel="stylesheet" href="fonts/mplus1_900.css" />
     <link rel="stylesheet" href="dist.css" />
-    <script defer src="alpine.min.js"></script>
+    <script type="module">
+      import Alpine from './alpine.js'
+
+      let transitionDirectives = {
+        ['x-transition.leave.delay.000ms.duration.500ms']: true,
+        ['x-transition:enter.delay.500ms.duration.500ms']: true,
+      }
+
+      Alpine.data('flipper', (intervalMs, initialDelayMs = 0) => ({
+        flipped: false,
+        timeoutId: null,
+        init() {
+          this.scheduleFlip(intervalMs + initialDelayMs)
+          this.$root.addEventListener('click', () => {
+            this.flip()
+          })
+        },
+        flip() {
+          this.scheduleFlip()
+          this.flipped = !this.flipped
+        },
+        scheduleFlip(timeoutMs = intervalMs) {
+          clearTimeout(this.timeoutId)
+          this.timeoutId = setTimeout(() => this.flip(), timeoutMs)
+        },
+        recto: {
+          ['x-show']() {
+            return !this.flipped
+          },
+          ...transitionDirectives,
+        },
+        verso: {
+          ['x-show']() {
+            return this.flipped
+          },
+          ...transitionDirectives,
+        },
+      }))
+
+      Alpine.start()
+    </script>
   </head>
   <body
     class="absolute inset-0 flex touch-manipulation select-none flex-col items-center justify-center whitespace-nowrap bg-black leading-[1] text-white [text-align-last:justify]"
   >
     <div class="flex flex-col gap-[3vh] text-[20vh]">
       <div
-        x-data="{ chineseKana: false }"
-        @click="chineseKana = !chineseKana"
+        x-data="flipper(30_000, 5_000)"
         class="flex flex-col justify-between gap-[1vh] font-black [writing-mode:vertical-rl]"
       >
         <div class="invisible relative mt-[1%] text-[35%]">
           ここになにもなし
-          <div
-            x-show="!chineseKana"
-            x-transition.duration.200ms
-            x-transition:enter.delay.200ms
-            class="visible absolute inset-0"
-          >
+          <div x-bind="recto" class="visible absolute inset-0">
             メレン・マックス
           </div>
-          <div
-            x-cloak
-            x-show="chineseKana"
-            x-transition.duration.200ms
-            x-transition:enter.delay.200ms
-            class="visible absolute inset-0"
-          >
+          <div x-cloak x-bind="verso" class="visible absolute inset-0">
             クァン・イーミン
           </div>
         </div>
         <div>関奕鳴</div>
       </div>
       <div
-        x-data="{ showRole: false }"
-        @click="showRole = !showRole"
+        x-data="flipper(10_000)"
         class="invisible relative ml-[3%] mr-[1%] font-mono text-[13%]"
       >
         Nothing to see...
-        <div
-          x-show="!showRole"
-          x-transition.duration.200ms
-          x-transition:enter.delay.200ms
-          class="visible absolute inset-0"
-        >
+        <div x-bind="recto" class="visible absolute inset-0">
           Maximilien Mellen
         </div>
-        <div
-          x-cloak
-          x-show="showRole"
-          x-transition.duration.200ms
-          x-transition:enter.delay.200ms
-          class="visible absolute inset-0"
-        >
-          Software Engineer
+        <div x-cloak x-bind="verso" class="visible absolute inset-0">
+          ソフトウェア開発者
         </div>
       </div>
       <div class="flex h-[5vh] items-center justify-evenly">

@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "start": "serve",
-    "postinstall": "cp node_modules/alpinejs/dist/cdn.min.js alpine.min.js",
+    "postinstall": "cp node_modules/alpinejs/dist/module.esm.min.js alpine.js",
     "tailwind:build": "tailwindcss -i main.css -o dist.css --minify",
     "tailwind:watch": "tailwindcss -i main.css -o dist.css --minify --watch",
     "ripfonts": "node scripts/ripfonts"
