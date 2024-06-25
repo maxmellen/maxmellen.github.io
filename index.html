@@ -44,7 +44,30 @@
         </div>
         <div>関奕鳴</div>
       </div>
-      <div class="ml-[3%] mr-[1%] font-mono text-[13%]">Maximilien Mellen</div>
+      <div
+        x-data="{ showRole: false }"
+        @click="showRole = !showRole"
+        class="invisible relative ml-[3%] mr-[1%] font-mono text-[13%]"
+      >
+        Nothing to see...
+        <div
+          x-show="!showRole"
+          x-transition.duration.200ms
+          x-transition:enter.delay.200ms
+          class="visible absolute inset-0"
+        >
+          Maximilien Mellen
+        </div>
+        <div
+          x-cloak
+          x-show="showRole"
+          x-transition.duration.200ms
+          x-transition:enter.delay.200ms
+          class="visible absolute inset-0"
+        >
+          Software Engineer
+        </div>
+      </div>
       <div class="flex h-[5vh] items-center justify-evenly">
         <a
           class="contents"
