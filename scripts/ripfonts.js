@@ -24,6 +24,7 @@ let downloadPromises = []
 for (let [, fontFamily, fontUrl] of matches) {
   let fileName = path.basename(fontUrl)
   let destPath = path.join(destDir, fileName)
+
   downloadPromises.push(
     downloadToFile(fontUrl, destPath).then(() => {
       styleSheet = styleSheet.replace(
@@ -63,18 +64,18 @@ function readAll(stream) {
 }
 
 /**
- * @param {string} url
- * @param {string} dest
+ * @param {string} remoteUrl
+ * @param {string} localPath
  * @returns {Promise<void>}
  */
-function downloadToFile(url, dest) {
+function downloadToFile(remoteUrl, localPath) {
   return new Promise((resolve) => {
-    let file = fs.createWriteStream(dest)
-    log('ダウンロード中:', path.basename(url))
-    https.get(url, (res) => {
+    let file = fs.createWriteStream(localPath)
+    log('ダウンロード中:', path.basename(remoteUrl))
+    https.get(remoteUrl, (res) => {
       res.pipe(file)
       file.on('finish', () => {
-        log('ダウンロード完了:', path.basename(url))
+        log('ダウンロード完了:', path.basename(remoteUrl))
         file.close(() => resolve())
       })
     })
